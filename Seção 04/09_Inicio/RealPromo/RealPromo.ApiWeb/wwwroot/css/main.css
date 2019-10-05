@@ -1,0 +1,85 @@
+body {
+    font-family: sans-serif;
+    margin: 0px;
+}
+.container-login {
+    margin: 0 auto;
+    text-align: center;
+    font-family: sans-serif;
+    color: white;
+    width: 100%;
+    max-width: 740px;
+    padding: 20px;
+    margin: 0 auto;
+    margin-top: 100px;
+    text-align: center;
+}
+.container-form {
+    margin-top: 100px;
+}
+.container-button {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+.container-logo {
+    text-align: center;
+    width: 320px;
+}
+.container-promo {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+    border: 1px solid white;
+}
+.container-chamada {
+    padding: 10px;
+}
+.container-botao {
+    background-color: white;
+    color: #FE602B;
+    padding: 20px;
+    display: flex;
+    align-items: center;
+}
+input[type=text] {
+    background-color: white;
+    color: black;
+    border-radius: 25px;
+    border: 1px solid black;
+    padding: 15px 25px;
+    margin-bottom: 20px;
+    width: 100%;
+    font-size: 18px;
+}
+input[type=text]::placeholder {
+    color: gray;
+}
+input[type=button]:hover, .btn-send:hover {
+    background-color: white;
+}
+input[type=button], .btn-send {
+    background-color: lightgray;
+    color: black;
+    border-radius: 25px;
+    border: 1px solid black;
+    padding: 15px 25px;
+    width: 33%;
+    font-size: 18px;
+}
+.btn-send {
+    width: 70px;
+    border-radius: 30px;
+    background-image: url("../imagem/send.png");
+    background-repeat: no-repeat;
+    background-position: center;
+    height: 51px;
+    margin-left: 15px;
+}
+
+.botao {
+    border: 1px solid white;
+    padding: 10px 15px;
+    color: white;
+}
