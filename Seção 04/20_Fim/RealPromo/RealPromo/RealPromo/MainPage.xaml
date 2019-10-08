@@ -1,0 +1,58 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             BackgroundColor="#FE602B"
+             x:Class="RealPromo.MainPage">
+
+    <StackLayout Padding="15">
+        
+
+
+        <ListView x:Name="ListViewPromocao">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <Frame BackgroundColor="#FE602B" BorderColor="White" Padding="0" Margin="5">
+                            <StackLayout Orientation="Horizontal">
+                                <StackLayout Spacing="0" HorizontalOptions="StartAndExpand" Padding="10">
+                                    <Label Text="{Binding Empresa}"                    
+                                           TextColor="White"
+                                           FontAttributes="Bold"
+                                           FontSize="Large"
+                                           VerticalOptions="CenterAndExpand" />
+                                    <Label Text="{Binding Chamada}" 
+                                           FontAttributes="Bold"
+                                           FontSize="Large"
+                                           TextColor="White"
+                                           VerticalOptions="CenterAndExpand" />
+                                    <Label Text="{Binding Regras}" 
+                                           TextColor="White"                   
+                                           VerticalOptions="CenterAndExpand" />
+                                </StackLayout>
+                                <StackLayout BackgroundColor="White" Padding="15">
+                                    <Label Text="Pegar"
+                                           TextColor="#FE602B"
+                                           FontAttributes="Bold"
+                                           FontSize="Large"
+                                           VerticalOptions="CenterAndExpand" />
+                                </StackLayout>
+                            </StackLayout>
+                        </Frame>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+        
+        
+        
+        <Label Text="*Toda promoção tem prazo de 1 hora ou unidades." 
+           TextColor="White"
+           HorizontalOptions="Center"
+           VerticalOptions="EndAndExpand" />
+
+    </StackLayout>
+
+</ContentPage>
