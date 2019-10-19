@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.29326.143
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ZapWebApi", "ZapWebApi\ZapWebApi.csproj", "{2BE8CA83-6ED7-46CF-B3E1-B9DD4D51A378}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ZapWeb", "ZapWeb\ZapWeb.csproj", "{6C77B094-E0D1-4306-BA0A-0A7AB2911221}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -11,15 +11,15 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{2BE8CA83-6ED7-46CF-B3E1-B9DD4D51A378}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{2BE8CA83-6ED7-46CF-B3E1-B9DD4D51A378}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{2BE8CA83-6ED7-46CF-B3E1-B9DD4D51A378}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{2BE8CA83-6ED7-46CF-B3E1-B9DD4D51A378}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6C77B094-E0D1-4306-BA0A-0A7AB2911221}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6C77B094-E0D1-4306-BA0A-0A7AB2911221}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6C77B094-E0D1-4306-BA0A-0A7AB2911221}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6C77B094-E0D1-4306-BA0A-0A7AB2911221}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
-		SolutionGuid = {54B986AE-F31E-400D-9328-550D89C55279}
+		SolutionGuid = {A9D21BBE-311F-45A3-AFEE-317EB96F995D}
 	EndGlobalSection
 EndGlobal
