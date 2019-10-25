@@ -1,0 +1,43 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="ZapApp.Cadastro"
+             BackgroundColor="#32A060"
+             xmlns:componente="clr-namespace:ZapApp.Components"
+             >
+    <ContentPage.Content>
+        <StackLayout HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" Spacing="30">
+
+            <Image Margin="0, 30">
+                <Image.Source>
+                    <OnPlatform x:TypeArguments="FileImageSource">
+                        <OnPlatform.Platforms>
+                            <On Platform="Android" Value="ZapWebLogo.png" />
+                            <On Platform="iOS" Value="ZapWebLogo.png" />
+                            <On Platform="UWP" Value="Images\ZapWebLogo.png" />
+                        </OnPlatform.Platforms>
+                    </OnPlatform>
+                </Image.Source>
+            </Image>
+
+            <Frame  BackgroundColor="#267848" Padding="15, 5" CornerRadius="30">
+                <componente:CleanEntry x:Name="Nome" Placeholder="Nome" PlaceholderColor="White" TextColor="White" HorizontalOptions="Center" WidthRequest="250" />
+            </Frame>
+
+            <Frame  BackgroundColor="#267848" Padding="15, 5" CornerRadius="30">
+                <componente:CleanEntry x:Name="Email" Placeholder="E-mail" PlaceholderColor="White" TextColor="White" HorizontalOptions="Center" WidthRequest="250" />
+            </Frame>
+            
+            <Frame  BackgroundColor="#267848" Padding="15, 5" CornerRadius="30">
+                <componente:CleanEntry x:Name="Senha" Placeholder="Senha" IsPassword="True" PlaceholderColor="White" TextColor="White" HorizontalOptions="Center" WidthRequest="250" />
+            </Frame>
+
+            <Button x:Name="Cadastrar" Text="CADASTRAR" TextColor="White" BackgroundColor="#267848" HorizontalOptions="Center" WidthRequest="200" CornerRadius="30" />
+            <Label x:Name="Mensagem" HorizontalTextAlignment="Center" />
+            <ActivityIndicator x:Name="Processando" />
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

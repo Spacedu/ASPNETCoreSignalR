@@ -1,0 +1,127 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             BackgroundColor="#F0F0F0"
+             xmlns:viewModel="clr-namespace:ZapApp"
+             xmlns:dataTemplate="clr-namespace:ZapApp"
+             xmlns:componente="clr-namespace:ZapApp.Components"
+             xmlns:converter="clr-namespace:ZapApp.Converters"
+             x:Class="ZapApp.ListagemMensagens">
+    <ContentPage.BindingContext>
+        <viewModel:ListagemMensagensViewModel />
+    </ContentPage.BindingContext>
+
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <converter:NomeConverter x:Key="nomeConverter" />
+            
+            <DataTemplate x:Key="esquerdaTemplate">
+                <ViewCell>
+                    <Grid BackgroundColor="#F0F0F0" Padding="7">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto" />
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="*" />
+                        </Grid.ColumnDefinitions>
+                        <Frame Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" HasShadow="True" CornerRadius="20">
+                            <StackLayout>
+                                <StackLayout Orientation="Horizontal">
+                                    <Image WidthRequest="25">
+                                        <Image.Source>
+                                            <OnPlatform x:TypeArguments="FileImageSource">
+                                                <OnPlatform.Platforms>
+                                                    <On Platform="Android" Value="chatmsgsmall.png" />
+                                                    <On Platform="iOS" Value="chatmsgsmall.png" />
+                                                    <On Platform="UWP" Value="Images\chatmsgsmall.png" />
+                                                </OnPlatform.Platforms>
+                                            </OnPlatform>
+                                        </Image.Source>
+                                    </Image>
+                                    <Label Text="{Binding Usuario.Nome, Converter={StaticResource nomeConverter}}" TextColor="Black" />
+                                </StackLayout>
+                                <Label Text="{Binding Texto}" TextColor="#8C8C8C" />
+                            </StackLayout>
+                        </Frame>
+                    </Grid>
+                </ViewCell>
+            </DataTemplate>
+            <DataTemplate x:Key="direitaTemplate">
+                <ViewCell>
+                    <Grid BackgroundColor="#F0F0F0" Padding="7">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto" />
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="*" />
+                        </Grid.ColumnDefinitions>
+                        <Frame Grid.Row="0" Grid.Column="1" Grid.ColumnSpan="2" HasShadow="True" CornerRadius="20">
+                            <StackLayout>
+                                <StackLayout Orientation="Horizontal" HorizontalOptions="End">
+                                    <Label Text="{Binding Usuario.Nome, Converter={StaticResource nomeConverter}}" TextColor="Black" />
+                                    <Image WidthRequest="25">
+                                        <Image.Source>
+                                            <OnPlatform x:TypeArguments="FileImageSource">
+                                                <OnPlatform.Platforms>
+                                                    <On Platform="Android" Value="chatmsgsmall.png" />
+                                                    <On Platform="iOS" Value="chatmsgsmall.png" />
+                                                    <On Platform="UWP" Value="Images\chatmsgsmall.png" />
+                                                </OnPlatform.Platforms>
+                                            </OnPlatform>
+                                        </Image.Source>
+                                    </Image>
+                                </StackLayout>
+                                <Label Text="{Binding Texto}" HorizontalTextAlignment="End" TextColor="#8C8C8C" />
+                            </StackLayout>
+                        </Frame>
+                    </Grid>
+                </ViewCell>
+            </DataTemplate>
+            <dataTemplate:MensagemDataTemplateSelector x:Key="mensagemDataTemplateSelector"
+                EsquerdaTemplate="{StaticResource esquerdaTemplate}"
+                DireitaTemplate="{StaticResource direitaTemplate}" />
+        </ResourceDictionary>
+    </ContentPage.Resources>
+    
+    <ContentPage.Content>
+        <StackLayout>
+            <ListView SeparatorVisibility="None" ItemsSource="{Binding Mensagens}" HasUnevenRows="True" ItemTemplate="{StaticResource mensagemDataTemplateSelector}" />
+            
+            
+            <Grid VerticalOptions="End" Padding="10">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="85*" />
+                    <ColumnDefinition Width="15*"/>
+                </Grid.ColumnDefinitions>
+                <Frame Grid.Row="0" Grid.Column="0" BackgroundColor="#32A060" Padding="15, 5" CornerRadius="30">
+                    <componente:CleanEntry x:Name="Mensagem" Placeholder="Mensagem" PlaceholderColor="White" TextColor="White" HorizontalOptions="StartAndExpand" WidthRequest="250" />
+                </Frame>
+                <Button x:Name="Enviar" Grid.Row="0" Grid.Column="1" TextColor="White" BackgroundColor="#32A060" HorizontalOptions="Center" CornerRadius="30" WidthRequest="60">
+                    <Button.ImageSource>
+                        <OnPlatform x:TypeArguments="FileImageSource">
+                            <OnPlatform.Platforms>
+                                <On Platform="Android" Value="send.png" />
+                                <On Platform="iOS" Value="send.png" />
+                                <On Platform="UWP" Value="Images\send.png" />
+                            </OnPlatform.Platforms>
+                        </OnPlatform>
+                    </Button.ImageSource>
+                </Button>
+            </Grid>
+        </StackLayout>
+        
+
+
+
+    </ContentPage.Content>
+</ContentPage>
