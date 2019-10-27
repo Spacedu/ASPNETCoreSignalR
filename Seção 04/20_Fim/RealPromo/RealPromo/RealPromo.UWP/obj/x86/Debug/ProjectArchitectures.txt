@@ -1,1 +1,0 @@
-C:\Desenvolvimento\20_Fim\RealPromo\RealPromo\RealPromo.UWP\RealPromo.UWP.csproj;x86

@@ -1,0 +1,82 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             BackgroundColor="#32A060"
+             xmlns:viewModel="clr-namespace:ZapApp"
+             xmlns:conveter="clr-namespace:ZapApp.Converters"
+             x:Class="ZapApp.ListagemUsuarios">
+    <ContentPage.BindingContext>
+        <viewModel:ListagemUsuariosViewModel />
+    </ContentPage.BindingContext>
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <conveter:NomeConverter x:Key="nomeConverter" />
+            <conveter:OnlineConverter x:Key="onlineConverter" />
+        </ResourceDictionary>
+    </ContentPage.Resources>
+    
+    <ContentPage.Content>
+        <ListView ItemsSource="{Binding Usuarios}" HasUnevenRows="True">
+            <ListView.Header>
+                <StackLayout>
+                    <Image Margin="0, 30">
+                        <Image.Source>
+                            <OnPlatform x:TypeArguments="FileImageSource">
+                                <OnPlatform.Platforms>
+                                    <On Platform="Android" Value="ZapWebLogo.png" />
+                                    <On Platform="iOS" Value="ZapWebLogo.png" />
+                                    <On Platform="UWP" Value="Images\ZapWebLogo.png" />
+                                </OnPlatform.Platforms>
+                            </OnPlatform>
+                        </Image.Source>
+                    </Image>
+                    <Button x:Name="Sair" Text="SAIR" TextColor="White" BackgroundColor="#267848" HorizontalOptions="Center" WidthRequest="200" CornerRadius="30" Margin="0, 10" />
+                </StackLayout>
+            </ListView.Header>
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <Grid Padding="10">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto" />
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="100" />
+                                <ColumnDefinition Width="*" />
+                            </Grid.ColumnDefinitions>
+
+                            <Image Grid.Row="0" Grid.Column="0">
+                                <Image.Source>
+                                    <OnPlatform x:TypeArguments="FileImageSource">
+                                        <OnPlatform.Platforms>
+                                            <On Platform="Android" Value="chaticon.png" />
+                                            <On Platform="iOS" Value="chaticon.png" />
+                                            <On Platform="UWP" Value="Images\chaticon.png" />
+                                        </OnPlatform.Platforms>
+                                    </OnPlatform>
+                                </Image.Source>
+                            </Image>
+
+                            <StackLayout Grid.Row="0" Grid.Column="1">
+                                <Label TextColor="White">
+                                    <Label.FormattedText>
+                                        <FormattedString>
+                                            <Span Text="{Binding Nome, Converter={StaticResource nomeConverter}}" />
+                                            <Span Text=" (" />
+                                            <Span Text="{Binding IsOnline, Converter={StaticResource onlineConverter}}" />
+                                            <Span Text=")" />
+                                        </FormattedString>
+                                    </Label.FormattedText>
+                                </Label>
+                                <Label Text="{Binding Email}" TextColor="#D8CFCF" />
+                            </StackLayout>
+                        </Grid>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+    </ContentPage.Content>
+</ContentPage>

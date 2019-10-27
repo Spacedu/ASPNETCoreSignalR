@@ -1,0 +1,1 @@
+C:\Desenvolvimento\38_Fim\ZapWeb\ZapApp\ZapApp.UWP\ZapApp.UWP.csproj;x86
